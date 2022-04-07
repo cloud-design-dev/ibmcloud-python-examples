@@ -7,6 +7,9 @@ from SoftLayer.CLI import environment
 from SoftLayer.CLI import formatting
 import json
 
+## Add info here about authentication if slcli is installed 
+## or set environmental variables 
+
 endpoint_url="https://api.softlayer.com/rest/v3.1/"
 client = SoftLayer.create_client_from_env(
     username=os.environ.get("IAAS_CLASSIC_USERNAME"),
