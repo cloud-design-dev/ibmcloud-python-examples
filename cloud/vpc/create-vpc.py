@@ -7,6 +7,37 @@ from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from ibm_cloud_sdk_core import ApiException
 from haikunator import Haikunator
 from datetime import datetime, timedelta
+import logging
+from logdna import LogDNAHandler 
+
+ingestion_key = os.environ.get('LOGDNA_INGESTION_KEY')
+
+# def setup_logging(default_path='logging.json', default_level=logging.info, env_key=ingestion_key):
+#     # read logging.json for log parameters to be ued by script
+#     path = default_path
+#     value = os.getenv(env_key, None)
+#     if value:
+#         path = value
+#     if os.path.exists(path):
+#         with open(path, 'rt') as f:
+#             config = json.load(f)
+#         logging.config.dictConfig(config)
+#     else:
+#         logging.basicConfig(level=default_level)
+log = logging.getLogger('logdna')
+log.setLevel(logging.INFO)
+
+options = {
+  'hostname': 'europa.local',
+  'env': 'Sydney',
+  'level': 'Info',
+  'index_meta': True,
+  'url': 'https://logs.au-syd.logging.cloud.ibm.com/logs/ingest'
+}
+
+logger = LogDNAHandler(ingestion_key, options)
+
+log.addHandler(logger)
 
 today = datetime.now()
 date = today + timedelta(days = -1)
@@ -16,7 +47,8 @@ resource_group = (os.environ.get('RESOURCE_GROUP_ID'))
 authenticator = IAMAuthenticator(os.environ.get('IBMCLOUD_API_KEY'))
 
 vpcService = VpcV1(authenticator=authenticator)
-vpcService.set_service_url('https://jp-tok.iaas.cloud.ibm.com/v1')
+vpcServiceRegion = 'https://' + (os.environ.get('VPC_REGION')) + '.iaas.cloud.ibm.com/v1'
+vpcService.set_service_url(vpcServiceRegion)
 
 tagService = GlobalTaggingV1(authenticator=authenticator)
 tagService.set_service_url('https://tags.global-search-tagging.cloud.ibm.com')
@@ -48,9 +80,9 @@ def create_vpc(vpcService):
     return new_vpc
 
 try:
-    print("\nCreating IBM Cloud VPC in " + os.environ.get('VPC_REGION') + " ----\n")
+    log.info("\nCreating IBM Cloud VPC in " + os.environ.get('VPC_REGION') + " ----\n")
     newVpc = create_vpc(vpcService)
-    print("Creation Complete. VPC Info: ----\nName: " + newVpc['name'] + "\nID: " + newVpc['id'] + "\nCRN: " + newVpc['crn'] + " ----\n----\n")
+    log.error("Creation Complete. VPC Info: ----\nName: " + newVpc['name'] + "\nID: " + newVpc['id'] + "\nCRN: " + newVpc['crn'] + " ----\n----\n")
 except ApiException as e:
      print("VPC creation failed with status code " + str(e.code) + ": " + e.message)
 
@@ -59,7 +91,7 @@ def create_pubgw(vpcService):
     vpc_identity_model = {'id': newVpc['id']}
     vpc = vpc_identity_model
     zone = {'name': (os.environ.get('VPC_REGION')) + "-1"}
-    name = (basename + "z1-pubgw")
+    name = (basename + "-z1-pubgw")
 
     new_pubgw = vpcService.create_public_gateway(
         vpc,
