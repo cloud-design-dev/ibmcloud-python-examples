@@ -24,8 +24,6 @@ for rg in resource_group_list['resources']:
 
 print(json.dumps(resource_group_list))
 
-
-
 data=[]
 for rg in resource_group_list['resources']:
     data.append({
