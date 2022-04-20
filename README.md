@@ -1,26 +1,26 @@
 # ibmcloud-python-examples
-IBM Cloud Python examples for Classic and PaaS resources. 
+IBM Cloud Python examples for Classic and PaaS resources.
 
-## Major WIP
+## Classic Infrastructure
 
-## Pre-reqs
- - IBM Cloud API Key
+All Classic Infrastructure examples are located in the [classic](classic/) directory. The [README](classic/README.md) outlines what tools need to be installed as well as how to set up authentication for interacting with the Python API Client.
 
- - SoftLayer slcli installed (If wanting to interact with the SoftLayer API aka anything in the `classic` directory)
- - Classic Infra username/API keys (If wanting to interact with the SoftLayer API aka anything in the `classic` directory)
+## Cloud Resources
 
-## Authorization 
+The Cloud Resource examples are broken up by their respective API. Currently the this includes:
 
+    ```
+    vpc:
+     - Create a VPC, Public, Gateway, and Subnet
+     - List all VPC related resources in the targetted region 
 
-## Env Variables
+    tag and search:
+     - Get all attached tags across Classic Infrastructure and Cloud Resources
+     - Get all resources attached to a specific tag
+     - Find all VPC instances attached to a specific tag
 
-```
-export IBMCLOUD_API_KEY=""
-export IBM_ACCOUNT=""
-export RESOURCE_GROUP=""
-export VPC_REGION=""
-export RESOURCE_MANAGER_URL="https://resource-controller.cloud.ibm.com"
-export RESOURCE_MANAGER_AUTHTYPE=iam
-export GLOBAL_TAGGING_URL="https://tags.global-search-tagging.cloud.ibm.com"
-export GLOBAL_TAGGING_AUTHTYPE=iam
-```
+    containers:
+     - Get a Vulnerability advisor scan for all images in the IBM Container Registry
+    ```
+
+See the main [README](cloud/README.md) for configuring the most common Environment variables and information on the various python modules that need to be installed. 
