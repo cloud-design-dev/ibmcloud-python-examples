@@ -13,6 +13,8 @@ The python client can use its built in [create_client_from_env][auth-env] option
 
 If you are unsure of your Classic Infrastructure username, go to the [IAM Users][iam-users] page in the portal, click on your username and look under the section that says **VPN password**.
 
+![](https://dsc.cloud/quickshare/Shared-Image-2022-04-20-13-20-08.png)
+
 To get your Classic Infrastructure API key use the following steps:
 
 1. Go to [API Keys][api-keys]
