@@ -4,10 +4,10 @@ IBM Cloud Python examples for Classic and PaaS resources.
 ## Major WIP
 
 ## Pre-reqs
- - IBM Cloud python sdks installed 
- - SoftLayer slcli installed 
- - IBM Cloud API Key and 
- - Classic Infra username/API keys (If wanting to interact with the SoftLayer API)
+ - IBM Cloud API Key
+
+ - SoftLayer slcli installed (If wanting to interact with the SoftLayer API aka anything in the `classic` directory)
+ - Classic Infra username/API keys (If wanting to interact with the SoftLayer API aka anything in the `classic` directory)
 
 ## Authorization 
 
@@ -15,12 +15,9 @@ IBM Cloud Python examples for Classic and PaaS resources.
 ## Env Variables
 
 ```
-export IAAS_CLASSIC_USERNAME=""
-export IAAS_CLASSIC_API_KEY=""
 export IBMCLOUD_API_KEY=""
 export IBM_ACCOUNT=""
 export RESOURCE_GROUP=""
-export IBM_ACCOUNT=""
 export VPC_REGION=""
 export RESOURCE_MANAGER_URL="https://resource-controller.cloud.ibm.com"
 export RESOURCE_MANAGER_AUTHTYPE=iam
