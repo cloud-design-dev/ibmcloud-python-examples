@@ -18,14 +18,14 @@ To get your Classic Infrastructure API key use the following steps:
 1. Go to [API Keys][api-keys]
 2. From the drop down select 'Classic Infrastructure API Keys' and copy the key
 
-![Choose Classic API Keys](https://dsc.cloud/quickshare/Shared-Image-2022-04-20-12-07-44.png)
+![Retrieve Classic API Keys](https://dsc.cloud/quickshare/retrieve-classic-key.png)
 
 If you do not have a Classic Infrastructure API Key you will need to generate one from the [API Keys][api-keys] page in the portal:
 
 1. Go to [API Keys][api-keys]
 2. From the drop down select 'Classic Infrastructure API Keys' and click `Create a Classic Infrastructure API key`
 
-![Create Classic API Key](https://dsc.cloud/quickshare/Shared-Image-2022-04-20-12-09-15.png)
+![Create Classic API Key](https://dsc.cloud/quickshare/create-classic-key.png)
 
 ## Environment variables
 
