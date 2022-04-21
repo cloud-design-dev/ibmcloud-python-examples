@@ -16,4 +16,5 @@ export GLOBAL_TAGGING_AUTHTYPE=iam
 export RESOURCE_GROUP_ID=""
 export VULNERABILITY_ADVISOR_AUTH_TYPE=iam
 export VULNERABILITY_ADVISOR_URL="https://us.icr.io/va/api/v3"
+export TRANSIT_GATEWAY_URL="https://transit.cloud.ibm.com/v1"
 ```

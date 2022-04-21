@@ -21,6 +21,10 @@ The Cloud Resource examples are broken up by their respective API. Currently the
 
     containers:
      - Get a Vulnerability advisor scan for all images in the IBM Container Registry
+
+    schematics:
+     - List all workspaces in the region along with id and status 
+     - Retrieve workspace outputs 
     ```
 
 See the main [README](cloud/README.md) for configuring the most common Environment variables and information on the various python modules that need to be installed. 
