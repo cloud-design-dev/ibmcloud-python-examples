@@ -25,22 +25,35 @@ directLinkService = DirectLinkV1(
 # Use only when need to change the endpoint. The default endpoint is directlink.cloud.ibm.com/v1
 # directLinkService.set_service_url('https://directlink.cloud.ibm.com/v1')
 
-offeringType = directLinkService.list_offering_type_locations(
-   offering_type="connect").get_result()
+location = "dal03"
 
-print("Listing Connect Provider Locations:")
-for location in offeringType['locations']:
-    print(location['display_name'] + "\nLands in a " + location['location_type'] + "\n")
+def show_dc_locations(directLinkService):
+    offeringType = directLinkService.list_offering_type_locations(
+        offering_type="connect").get_result()
 
-print(json.dumps(offeringType, indent=2))
+    print(json.dumps(offeringType, indent=2))
+
+    # print("Listing Connect Provider Locations:")
+    
+    # for location in offeringType['locations']:
+    #     print(location['display_name'] + "\nLands in a " + location['location_type'] + "\n")
+
+def show_location_ports(directLinkService, location):
+
+    ports = directLinkService.list_ports(
+        location_name=location
+        ).get_result()
+
+    print(json.dumps(ports, indent=2))
 
 
-ports = directLinkService.list_ports(
-    location_name = "dal03"
-    ).get_result().get("ports")
-
-print(json.dumps(ports, indent=2))
-
-# def show_dc_locations(directLinkService):
-
+try:
+  show_dc_locations(directLinkService)
+  show_location_ports(directLinkService, location)
+except ApiException as ae:
+  print("Method failed")
+  print(" - status code: " + str(ae.code))
+  print(" - error message: " + ae.message)
+  if ("reason" in ae.http_response.json()):
+    print(" - reason: " + ae.http_response.json()["reason"])
 
