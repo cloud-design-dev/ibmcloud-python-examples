@@ -1,7 +1,5 @@
 import os
 import json
-from pprint import pprint
-## Strip out services that are not needed 
 from ibm_platform_services import IamAccessGroupsV2
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from ibm_cloud_sdk_core import ApiException
@@ -46,17 +44,17 @@ def get_access_group(accessGroupService, access_group_id):
 def create_access_group(accessGroupService):
     print("Creating new access group:")
     acessGroup = accessGroupService.create_access_group(
-        name='python-test-access-group',
+        name='cool-project-access-group',
         account_id=account_id,
-        description='Example Access Group created using the Python SDK'
+        description='Example Access Group created using the Python SDK for our cool new project'
     ).get_result()
 
     newAccessGroup = acessGroup
     print(json.dumps(newAccessGroup, indent=2))
 
 try:
-  list_access_groups(accessGroupService)
-  get_access_group(accessGroupService, access_group_id=access_group_id)
+  #list_access_groups(accessGroupService)
+  #get_access_group(accessGroupService, access_group_id=access_group_id)
   create_access_group(accessGroupService)
 except ApiException as ae:
   print("Method failed")
