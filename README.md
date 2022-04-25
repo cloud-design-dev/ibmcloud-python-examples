@@ -10,21 +10,33 @@ All Classic Infrastructure examples are located in the [classic](classic/) direc
 The Cloud Resource examples are broken up by their respective API. Currently the this includes:
 
     ```
-    vpc:
-     - Create a VPC, Public, Gateway, and Subnet
-     - List all VPC related resources in the targetted region 
+     - containers/registry
+    │       ├── cloud/containers/registry/get-va-image-reports.py
+    │       └── cloud/containers/registry/va-scan-example.py
+     - iam
+    │   ├── cloud/iam/access-groups.py
+    │   └── cloud/iam/servide-ids.py
+    ├── cloud/interconnectivity
+    │   ├── cloud/interconnectivity/direct-link
+    │   │   └── cloud/interconnectivity/direct-link/dl.py
+    │   └── cloud/interconnectivity/transit-gateway
+    │       ├── cloud/interconnectivity/transit-gateway/list-tgw-connections.py
+    │       └── cloud/interconnectivity/transit-gateway/list-tgws.py
+    ├── cloud/resource-management
+    ├── cloud/schematics
+    │   ├── cloud/schematics/README.md
+    │   ├── cloud/schematics/get-workspace-output.py
+    │   ├── cloud/schematics/get-workspace-resources.py
+    │   └── cloud/schematics/list-workspaces.py
+    ├── cloud/tagging-and-search
+    │   ├── cloud/tagging-and-search/find-by-tag.py
+    │   └── cloud/tagging-and-search/get-all-tags.py
+    ├── cloud/template-service.py
+    └── cloud/vpc
+        ├── cloud/vpc/create-vpc.py
+        ├── cloud/vpc/get-regional-zones.py
+        └── cloud/vpc/list-vpc-resources.py
 
-    tag and search:
-     - Get all attached tags across Classic Infrastructure and Cloud Resources
-     - Get all resources attached to a specific tag
-     - Find all VPC instances attached to a specific tag
-
-    containers:
-     - Get a Vulnerability advisor scan for all images in the IBM Container Registry
-
-    schematics:
-     - List all workspaces in the region along with id and status 
-     - Retrieve workspace outputs 
     ```
 
 See the main [README](cloud/README.md) for configuring the most common Environment variables and information on the various python modules that need to be installed. 
