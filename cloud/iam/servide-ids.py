@@ -1,9 +1,7 @@
 import os
 import json
 from pprint import pprint
-from ibm_vpc import VpcV1
-## Strip out services that are not needed 
-from ibm_platform_services import GlobalTaggingV1, ResourceManagerV2, IamAccessGroupsV2, GlobalSearchV2, IamIdentityV1
+from ibm_platform_services import IamIdentityV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from ibm_cloud_sdk_core import ApiException
 from datetime import datetime, timedelta
@@ -21,11 +19,6 @@ account_id = os.environ.get('ACCOUNT_ID')
 ## Construct IAM Authentication using IBMCLOUD_API_KEY Environment variable
 authenticator = IAMAuthenticator(os.environ.get('IBMCLOUD_API_KEY'))
 
-resourceService = ResourceManagerV2(authenticator=authenticator)
-
-resource_group = (os.environ.get('RESOURCE_GROUP'))
-
-accessGroupService = IamAccessGroupsV2(authenticator=authenticator)
 iamIdentityService = IamIdentityV1(authenticator=authenticator)
 
 def create_service_id(iamIdentityService):
