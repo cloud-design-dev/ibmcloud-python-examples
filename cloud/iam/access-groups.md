@@ -34,7 +34,6 @@ import json
 from ibm_platform_services import IamAccessGroupsV2
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from ibm_cloud_sdk_core import ApiException
-from datetime import datetime, timedelta
 
 ## Pull Account ID from Environment variable
 account_id = os.environ.get('ACCOUNT_ID')
@@ -90,7 +89,6 @@ import json
 from ibm_platform_services import IamAccessGroupsV2
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from ibm_cloud_sdk_core import ApiException
-from datetime import datetime, timedelta
 
 ## Pull Account ID from Environment variable
 account_id = os.environ.get('ACCOUNT_ID')
@@ -118,8 +116,6 @@ except ApiException as ae:
     print(" - reason: " + ae.http_response.json()["reason"])
 ```
 
-### Example Output
-
 ## Get Access Group
 
 You will need to set the Access Group ID in the script. Replace `Your-Access-Group-ID-Here` with the actual Access Group ID.
@@ -130,22 +126,12 @@ import json
 from ibm_platform_services import IamAccessGroupsV2
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from ibm_cloud_sdk_core import ApiException
-from datetime import datetime, timedelta
-
-## Used in the construction of many of the IBM Cloud API endpoints, which can be versioned.
-## Requests to these APIs require a major version as the first segment of the request path (ex. /v1/) 
-## and a date-based version as a query parameter in the format version=YYYY-MM-DD
-## For safety I set this to one day behind the current date 
-today = datetime.now()
-date = today + timedelta(days = -1)
-version_date = date.strftime("%Y-%m-%d")
 
 ## Pull Account ID from Environment variable
 account_id = os.environ.get('ACCOUNT_ID')
 
 # Set access group used in the get_access_group function
 access_group_id = 'Your-Access-Group-ID-Here'
-
 
 ## Construct IAM Authentication using IBMCLOUD_API_KEY Environment variable
 authenticator = IAMAuthenticator(os.environ.get('IBMCLOUD_API_KEY'))
@@ -167,6 +153,22 @@ except ApiException as ae:
   print(" - error message: " + ae.message)
   if ("reason" in ae.http_response.json()):
     print(" - reason: " + ae.http_response.json()["reason"])
+```
+
+### Example Output
+
+```shell
+{
+  "id": "AccessGroupId-xxxxxxx-1471-440b-xxxxxxx-xxxxxxx",
+  "name": "CDE VPC Infrastructure",
+  "description": "Access to VPC related resources in the CDE Resource Group",
+  "account_id": "xxxxxxx",
+  "created_at": "2020-11-06T14:27:16Z",
+  "created_by_id": "IBMid-xxxxxxx",
+  "last_modified_at": "2021-07-23T16:54:39Z",
+  "last_modified_by_id": "IBMid-xxxxxxx"
+}
+
 ```
 
 [access-groups]: https://cloud.ibm.com/apidocs/iam-access-groups?code=python

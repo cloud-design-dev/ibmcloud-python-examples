@@ -17,7 +17,7 @@ version_date = date.strftime("%Y-%m-%d")
 account_id = os.environ.get('ACCOUNT_ID')
 
 # Set access group used in the get_access_group function
-access_group_id = ''
+access_group_id = 'AccessGroupId-00f95bd8-1471-440b-be1d-52af2b994676'
 
 
 ## Construct IAM Authentication using IBMCLOUD_API_KEY Environment variable
@@ -54,8 +54,8 @@ def create_access_group(accessGroupService):
 
 try:
   #list_access_groups(accessGroupService)
-  #get_access_group(accessGroupService, access_group_id=access_group_id)
-  create_access_group(accessGroupService)
+  get_access_group(accessGroupService, access_group_id=access_group_id)
+  #create_access_group(accessGroupService)
 except ApiException as ae:
   print("Method failed")
   print(" - status code: " + str(ae.code))
