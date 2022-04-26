@@ -15,5 +15,5 @@ resource_instances_list = resourceService.list_resource_instances(
     name=resourceName
 ).get_result().get("resources")
 
-sm_instance = resource_instances_list['guid']
+sm_instance = resource_instances_list[0]['guid']
 print(sm_instance)
