@@ -1,1 +1,1 @@
-# IBM Cloud Transit Gateway Examples
+# Transit Gateway Examples

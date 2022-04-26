@@ -1,1 +1,1 @@
-# IBM Cloud Resource Controller/Manager Examples
+# Resource Controller/Manager Examples

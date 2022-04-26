@@ -1,4 +1,4 @@
-# IBM Cloud Schematics
+# Schematics Examples
 
 If you did not use the main [requirements.txt](../../requirements.txt), you can install the modules needed to interact with the Schematics API using the following commands:
 

@@ -1,13 +1,6 @@
-# IAM Examples
+# IAM Access Group Examples
 
 The examples in this document use the [IAM Access Groups][access-groups] Python SDK.
-
-* [Configuring Environment](#configuring-environment)
-* [Create New Access Group](#create-new-access-group)
-  * [Example Output](#example-output)
-* [List All Access Groups](#list-all-access-groups)
-  * [Example Output](#example-output-1)
-* [Get Access Group](#get-access-group)
 
 ## Configuring Environment
 

@@ -1,1 +1,1 @@
-# IBM Cloud Tag and Search Examples
+# Tag and Search Examples
