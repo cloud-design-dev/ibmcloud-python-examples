@@ -1,9 +1,6 @@
-# ibmcloud-python-examples
-IBM Cloud Python examples for Classic and PaaS resources.
+# IBM Cloud Python SDK Examples
 
-## Classic Infrastructure
-
-All Classic Infrastructure examples are located in the [classic](classic/) directory. The [README](classic/README.md) outlines what tools need to be installed as well as how to set up authentication for interacting with the Python API Client.
+IBM Cloud Python examples for a variety of IBM Cloud PaaS resources.
 
 ## Cloud Resources
 
@@ -41,4 +38,4 @@ VPC:
  - cloud/vpc/list-vpc-resources.py
 ```
 
-See the main [README](cloud/README.md) for configuring the most common Environment variables and information on the various python modules that need to be installed. 
+See the main [README](cloud/) for configuring the most common Environment variables and information on the various python modules that need to be installed.
