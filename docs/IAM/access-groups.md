@@ -1,3 +1,7 @@
+# Access Group Examples
+
+The examples in this document use the [IAM Access Groups][access-groups] Python SDK.
+
 ## Create New Access Group
 
 The following example will create a new Access Group named `python-test-access-group`:

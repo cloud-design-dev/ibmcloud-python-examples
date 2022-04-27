@@ -6,6 +6,13 @@ The examples in this IAM section use the IBM Cloud Platform Services Python SDK 
 pip install --upgrade "ibm-platform-services"
 ```
 
+You will also need to export the following environment variables if they are not already set:
+
+```shell
+export ACCOUNT_ID='YOUR ACCOUNT ID'
+export IBMCLOUD_API_KEY='YOUR IBM CLOUD API KEY ' 
+```
+
 ## APIs used in these examples
 
 - [IAM Access Groups][access-groups]
