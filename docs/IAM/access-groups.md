@@ -1,22 +1,3 @@
-# Access Group Examples
-
-The examples in this document use the [IAM Access Groups][access-groups] Python SDK.
-
-## Configuring Environment
-
-To use these examples please ensure you have installed the IBM Cloud Platform python module:
-
-```shell
-pip install --upgrade "ibm-platform-services"
-```
-
-You will also need to export the following environment variables if they are not already set:
-
-```shell
-export ACCOUNT_ID='YOUR ACCOUNT ID'
-export IBMCLOUD_API_KEY='YOUR IBM CLOUD API KEY ' 
-```
-
 ## Create New Access Group
 
 The following example will create a new Access Group named `python-test-access-group`:
