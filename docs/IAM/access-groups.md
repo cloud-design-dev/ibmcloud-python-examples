@@ -17,7 +17,7 @@ from ibm_cloud_sdk_core import ApiException
 account_id = os.environ.get('ACCOUNT_ID')
 
 ## Construct IAM Authentication using IBMCLOUD_API_KEY Environment variable
-authenticator = IAMAuthenticator(os.environ.get(''))
+authenticator = IAMAuthenticator(os.environ.get('IBMCLOUD_API_KEY'))
 accessGroupService = IamAccessGroupsV2(authenticator=authenticator)
 
 def create_access_group(accessGroupService):
