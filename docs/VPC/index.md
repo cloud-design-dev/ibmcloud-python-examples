@@ -18,7 +18,7 @@ export RESOURCE_GROUP='NAME OF RESOURCE_GROUP TO USE FOR DEPLOYMENTS"
 
 Calls to the VPC API require a major version as the first segment of the request path (`ex: /v1/`) and a date-based version as a query parameter in the format `version=YYYY-MM-DD`. For safety I set this to one day behind the current date using the `datetime` module:
 
-```python
+```py
 from datetime import datetime, timedelta
 
 today = datetime.now()
@@ -33,7 +33,9 @@ vpcService = VpcV1(
     authenticator=authenticator,
     version=version_date,
     )
+
 vpcServiceRegion = 'https://' + os.environ.get('VPC_REGION') + '.iaas.cloud.ibm.com/v1'
+
 vpcService.set_service_url(vpcServiceRegion)
 ```
 

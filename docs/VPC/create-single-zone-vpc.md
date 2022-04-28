@@ -2,25 +2,20 @@
 
 The following example will deploy a new VPC as well as a Public Gateway and Subnet in a single zone within the region.  
 
-```python
+```py
 import os
 import json
 from pprint import pprint
 from ibm_vpc import VpcV1
-from ibm_platform_services import GlobalTaggingV1, ResourceManagerV2
+from ibm_platform_services import ResourceManagerV2
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from ibm_cloud_sdk_core import ApiException
 from haikunator import Haikunator
 from datetime import datetime, timedelta
 
-## Used in the construction of the VPC API client which can be versioned.
-## Requests to the VPC API require a major version as the first segment of the request path (/v1/) 
-## and a date-based version as a query parameter in the format version=YYYY-MM-DD
-## For safety I set this to one day behind the current date 
 today = datetime.now()
 date = today + timedelta(days = -1)
 version_date = date.strftime("%Y-%m-%d")
-
 
 ## Construct IAM Authentication using IBMCLOUD_API_KEY Environment variable
 authenticator = IAMAuthenticator(os.environ.get('IBMCLOUD_API_KEY'))
@@ -33,10 +28,8 @@ resource_group_list = resourceService.list_resource_groups(
   include_deleted=False,
 ).get_result()
 
-
 rglist = resource_group_list['resources']
 rg_id = rglist['name' == resource_group]['id']
-
 
 ## Construct the VPC service and set the regional endpoint 
 vpcService = VpcV1(authenticator=authenticator)
@@ -47,10 +40,6 @@ vpcService.set_service_url(vpcServiceRegion)
 ## Todo: based on length of zones returned, create that number of pubgws and subnets
 zones = vpcService.list_region_zones(os.environ.get('VPC_REGION')).get_result()['zones']
 deployment_zone = zones[0]['name']
-
-## Set up global tagging service for adding tags once all resources have been deployed.
-tagService = GlobalTaggingV1(authenticator=authenticator)
-tagService.set_service_url('https://tags.global-search-tagging.cloud.ibm.com')
 
 ## Use Haikunator to generate a unique heroku like base name for resources.
 ## Handy while testing 
